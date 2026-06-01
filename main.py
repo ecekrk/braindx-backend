@@ -83,7 +83,7 @@ async def predict(file: UploadFile = File(...)):
     img_array = np.array(img, dtype=np.float32)
 
     # ResNet50 eğitim ön işlemesiyle uyumlu
-    img_array = preprocess_input(img_array)
+    img_array = img_array / 255.0
 
     img_array = np.expand_dims(img_array, axis=0).astype(np.float32)
 
